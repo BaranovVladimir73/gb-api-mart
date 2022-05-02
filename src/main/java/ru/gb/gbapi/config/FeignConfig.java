@@ -20,6 +20,7 @@ import org.springframework.http.converter.HttpMessageConverter;
 import ru.gb.gbapi.category.api.CategoryGateway;
 import ru.gb.gbapi.category.dto.CategoryDto;
 import ru.gb.gbapi.manufacturer.api.ManufacturerGateway;
+import ru.gb.gbapi.order.api.OrderGateway;
 import ru.gb.gbapi.product.api.ProductGateway;
 
 import java.util.Date;
@@ -51,6 +52,11 @@ public class FeignConfig {
     @Bean
     public ProductGateway productGateway() {
         return feignClientFactory.newFeignClient(ProductGateway.class, gbApiProperties.getEndpoint().getProductUrl());
+    }
+
+    @Bean
+    public OrderGateway orderGateway() {
+        return feignClientFactory.newFeignClient(OrderGateway.class, gbApiProperties.getEndpoint().getOrderUrl());
     }
 
 }
