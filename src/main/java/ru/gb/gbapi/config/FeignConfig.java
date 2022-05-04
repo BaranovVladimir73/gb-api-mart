@@ -22,6 +22,8 @@ import ru.gb.gbapi.category.dto.CategoryDto;
 import ru.gb.gbapi.manufacturer.api.ManufacturerGateway;
 import ru.gb.gbapi.order.api.OrderGateway;
 import ru.gb.gbapi.product.api.ProductGateway;
+import ru.gb.gbapi.security.api.AuthenticationUserGateway;
+import ru.gb.gbapi.security.api.UserGateway;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -57,6 +59,16 @@ public class FeignConfig {
     @Bean
     public OrderGateway orderGateway() {
         return feignClientFactory.newFeignClient(OrderGateway.class, gbApiProperties.getEndpoint().getOrderUrl());
+    }
+
+    @Bean
+    public UserGateway userGateway(){
+        return feignClientFactory.newFeignClient(UserGateway.class, gbApiProperties.getEndpoint().getUserUrl());
+    }
+
+    @Bean
+    public AuthenticationUserGateway authenticationUserGateway(){
+        return feignClientFactory.newFeignClient(AuthenticationUserGateway.class, gbApiProperties.getEndpoint().getAuthenticationUserUrl());
     }
 
 }

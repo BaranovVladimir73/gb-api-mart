@@ -11,7 +11,6 @@ public class GbApiProperties {
 
     private Connection connection;
     private Endpoint endpoint;
-    private Queue queue;
 
     @Setter
     @Getter
@@ -30,11 +29,9 @@ public class GbApiProperties {
         private String categoryUrl;
         private String productUrl;
         private String orderUrl;
+        private String userUrl;
+        private String authenticationUserUrl;
     }
 
-    @Getter
-    @Setter
-    public static class Queue {
-        private String queueName;
-    }
+
 }
