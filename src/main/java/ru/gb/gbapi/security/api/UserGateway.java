@@ -14,10 +14,10 @@ public interface UserGateway {
     List<UserDto> getUserList();
 
     @GetMapping("/{userId}")
-    ResponseEntity<?> getUser(@PathVariable("userId") Long id);
+    ResponseEntity<UserDto> getUser(@PathVariable("userId") Long id);
 
     @PostMapping
-    ResponseEntity<?> handlePost(@Validated @RequestBody UserDto userDto);
+    ResponseEntity<UserDto> handlePost(@Validated @RequestBody UserDto userDto);
 
     @PutMapping("/{userId}")
     ResponseEntity<?> handleUpdate(@PathVariable("userId") Long id, @Validated @RequestBody UserDto userDto);
