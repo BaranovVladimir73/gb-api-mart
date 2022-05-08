@@ -30,7 +30,7 @@ public class GbApiProperties {
         private String productUrl;
         private String orderUrl;
         private String userUrl;
-        private String authenticationUserUrl;
+        private String authUrl;
     }
 
 

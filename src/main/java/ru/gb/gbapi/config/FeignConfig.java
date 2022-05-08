@@ -68,7 +68,7 @@ public class FeignConfig {
 
     @Bean
     public AuthenticationUserGateway authenticationUserGateway(){
-        return feignClientFactory.newFeignClient(AuthenticationUserGateway.class, gbApiProperties.getEndpoint().getAuthenticationUserUrl());
+        return feignClientFactory.newFeignClient(AuthenticationUserGateway.class, gbApiProperties.getEndpoint().getAuthUrl());
     }
 
 }

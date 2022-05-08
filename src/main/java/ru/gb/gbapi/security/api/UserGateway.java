@@ -20,7 +20,7 @@ public interface UserGateway {
     ResponseEntity<UserDto> handlePost(@Validated @RequestBody UserDto userDto);
 
     @PutMapping("/{userId}")
-    ResponseEntity<?> handleUpdate(@PathVariable("userId") Long id, @Validated @RequestBody UserDto userDto);
+    ResponseEntity<UserDto> handleUpdate(@PathVariable("userId") Long id, @Validated @RequestBody UserDto userDto);
 
     @DeleteMapping("/{userId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
