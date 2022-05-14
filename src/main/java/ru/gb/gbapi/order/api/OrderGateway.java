@@ -1,5 +1,6 @@
 package ru.gb.gbapi.order.api;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -11,13 +12,14 @@ import java.util.List;
 public interface OrderGateway {
 
     @GetMapping
-    List<OrderDto> getOrderList();
+    List<OrderDto> getOrderList(@RequestHeader(HttpHeaders.AUTHORIZATION) String header);
 
     @GetMapping("/{orderId}")
     ResponseEntity<OrderDto> getOrder(@PathVariable("orderId") Long id);
 
     @PostMapping
-    ResponseEntity<OrderDto> handlePost(@Validated @RequestBody OrderDto orderDto);
+    ResponseEntity<OrderDto> handlePost(@Validated @RequestBody OrderDto orderDto,
+                                        @RequestHeader(HttpHeaders.AUTHORIZATION) String header);
 
     @PutMapping("/{orderId}")
     ResponseEntity<OrderDto> handleUpdate(@PathVariable("orderId") Long id,
